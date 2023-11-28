@@ -50,8 +50,8 @@ class HomePage extends StatelessWidget{
 
                   ElevatedButton(
                       onPressed: (){
-                        print('email:' + emailController.text); //print on console into text
-                        print('password:' + passwordController.text); //print on console into text
+                        print('email:${emailController.text}'); //print on console into text
+                        print('password:${passwordController.text}'); //print on console into text
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.pinkAccent,
