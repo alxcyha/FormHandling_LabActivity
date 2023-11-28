@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
 void main() {
   runApp(MainPage());
@@ -15,6 +14,9 @@ class MainPage extends StatelessWidget{
 }
 
 class HomePage extends StatelessWidget{
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -30,13 +32,15 @@ class HomePage extends StatelessWidget{
                 padding: const EdgeInsets.all(20),
                 children: [
                   TextFormField(
-                      decoration: InputDecoration(
+                      controller: emailController,
+                      decoration: const InputDecoration(
                         labelText: "Email Address",
                       ),
                       keyboardType: TextInputType.emailAddress
                   ),
                   TextFormField(
-                    decoration: InputDecoration(
+                    controller: passwordController,
+                    decoration: const InputDecoration(
                         labelText: "Password"
                     ),
                     obscureText: true,
@@ -46,10 +50,19 @@ class HomePage extends StatelessWidget{
 
                   ElevatedButton(
                       onPressed: (){
-                        print("Merry Christmas!");
+                        print('email:' + emailController.text); //print on console into text
+                        print('password:' + passwordController.text); //print on console into text
                       },
-                      child: Text("Submit",
-                          style: TextStyle(color: Colors.pinkAccent, fontWeight: FontWeight.bold))
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.pinkAccent,
+                          padding: const EdgeInsets.all(20),
+                          shape: RoundedRectangleBorder( //to set border radius to button
+                            borderRadius: BorderRadius.circular(30)
+                          ),
+                      ),
+
+                      child: const Text("Submit",
+                          style: TextStyle(fontWeight: FontWeight.bold))
                   )
                 ]
             )
